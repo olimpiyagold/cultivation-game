@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 35 30% 95%;
+    --foreground: 20 15% 15%;
+    --card: 35 25% 92%;
+    --card-foreground: 20 15% 15%;
+    --popover: 35 30% 95%;
+    --popover-foreground: 20 15% 15%;
+    --primary: 150 35% 30%;
+    --primary-foreground: 35 30% 95%;
+    --secondary: 35 20% 88%;
+    --secondary-foreground: 20 15% 20%;
+    --muted: 35 15% 90%;
+    --muted-foreground: 20 10% 45%;
+    --accent: 0 65% 45%;
+    --accent-foreground: 35 30% 95%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 35 15% 82%;
+    --input: 35 15% 85%;
+    --ring: 150 35% 30%;
+    --radius: 0.75rem;
+    --chart-1: 150 35% 30%;
+    --chart-2: 35 40% 55%;
+    --chart-3: 0 65% 45%;
+    --chart-4: 45 70% 50%;
+    --chart-5: 200 40% 40%;
+    --jade: 150 35% 30%;
+    --gold: 45 70% 50%;
+    --crimson: 0 65% 45%;
+    --bamboo: 100 25% 45%;
+  }
+
+  .dark {
+    --background: 220 15% 8%;
+    --foreground: 45 20% 88%;
+    --card: 220 15% 11%;
+    --card-foreground: 45 20% 88%;
+    --popover: 220 15% 11%;
+    --popover-foreground: 45 20% 88%;
+    --primary: 45 50% 55%;
+    --primary-foreground: 220 15% 8%;
+    --secondary: 220 12% 15%;
+    --secondary-foreground: 45 20% 85%;
+    --muted: 220 12% 15%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 150 30% 40%;
+    --accent-foreground: 220 15% 8%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 12% 18%;
+    --input: 220 12% 18%;
+    --ring: 45 50% 55%;
+    --chart-1: 45 50% 55%;
+    --chart-2: 150 30% 40%;
+    --chart-3: 0 50% 50%;
+    --chart-4: 200 40% 50%;
+    --chart-5: 280 30% 50%;
+    --jade: 150 30% 40%;
+    --gold: 45 50% 55%;
+    --crimson: 0 50% 50%;
+    --bamboo: 100 20% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  }
+}
+
+@layer utilities {
+  .font-calligraphy {
+    font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  }
+  .font-body {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  }
+  .text-jade {
+    color: hsl(var(--jade));
+  }
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  .text-crimson {
+    color: hsl(var(--crimson));
+  }
+  .bg-jade {
+    background-color: hsl(var(--jade));
+  }
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+}
+
+@layer components {
+  .rice-paper {
+    background: linear-gradient(
+      135deg,
+      hsl(35 30% 95%) 0%,
+      hsl(35 25% 92%) 50%,
+      hsl(35 30% 94%) 100%
+    );
+  }
+  .dark .rice-paper {
+    background: linear-gradient(
+      135deg,
+      hsl(220 15% 8%) 0%,
+      hsl(220 15% 10%) 50%,
+      hsl(220 15% 9%) 100%
+    );
+  }
+  .ink-wash {
+    background: radial-gradient(
+      ellipse at 30% 20%,
+      hsl(220 15% 12%) 0%,
+      hsl(220 15% 8%) 70%
+    );
+  }
+  .scroll-fade::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3rem;
+    background: linear-gradient(transparent, hsl(var(--background)));
+    pointer-events: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 2px;
+}
+
+/* Animation keyframes */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes float-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float-up {
+  animation: float-up 0.4s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
