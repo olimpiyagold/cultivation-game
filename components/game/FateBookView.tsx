@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { Sparkles, BookOpen, Clock, CheckCircle, Gift, Zap } from 'lucide-react';
 import { useGame } from '@/lib/game/context';
-import { useI18n } from '@/lib/i18n/context';n
+import { useI18n } from '@/lib/i18n/context';
+
 const STATUS_STYLES = {
   active:    { color: 'text-amber-500', bg: 'bg-amber-500/10 border-amber-500/30',    label: 'In Progress' },
   completed: { color: 'text-jade',      bg: 'bg-jade/10 border-jade/30',              label: 'Completed' },
@@ -137,7 +138,7 @@ export function FateBookView() {
               key={i}
               className={`rounded-lg border p-2.5 transition-all ${
                 done ? 'border-jade/30 bg-jade/5' : 'border-border bg-card/50'
-              }`
+              }`}
             >
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="text-base">{OBJ_ICONS[obj.type] ?? '📌'}</span>
